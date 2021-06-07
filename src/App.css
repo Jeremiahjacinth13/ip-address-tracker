@@ -1,0 +1,82 @@
+header{
+    height: 37vh;
+    width: 100%;
+    background:url('../src/images/pattern-bg.png'), no-repeat;
+    background-size: cover;
+    padding: 3em;
+}
+.ipInput h1{
+    text-align: center;
+    color: white;
+    margin-bottom: 1em;
+}
+header form{
+    width: 37%;
+    margin: auto;
+    background: white;
+    border-radius: 14px;
+    display: flex;
+    overflow: hidden;
+}
+form input, form button{
+    padding: 1em;
+    appearance: none;
+    background: none;
+    outline: none;
+    border:none;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+}
+form input::placeholder{
+    font-weight: 500;
+    color: var(--darkgray);
+}
+form button{
+    background: black;
+    width: 12%;
+    transition: 0.5s ease-in all;
+    cursor: pointer;
+}
+form button:hover{
+    background: var(--verydarkgray);
+}
+.ipDetailsMenu{
+    margin: auto;
+    width: 63%;
+    padding: 1.7em;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: -50px;
+    background: white;
+    box-shadow: 0px 5px 10px rgba(179, 179, 179, 0.308);
+}
+
+.ipDetailsMenu__tab__p{
+    margin-bottom: 25px;
+    font-size: 90%;
+    color: var(--darkgray);
+    font-weight: bold;
+}
+.ipDetailsMenu__tab h4{
+    font-size: 1.5em;
+    font-weight: 500;
+}
+.ipDetailsMenu__tab{
+    width: 25%;
+    position: relative;
+}
+.ipDetailsMenu__tab::after{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15%;
+    background: var(--darkgray);
+    
+}
