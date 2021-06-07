@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* {loading ? <Loader/> : <MainApp IPDetails = {IPDetails}/>} */}
+      {loading ? <Loader/> : <MainApp IPDetails = {IPDetails}/>}
       <MainApp/>
     </div>
   );
@@ -45,7 +45,7 @@ function InputForm({submitHandler}){
   const [ipAddress, setIpAddress] = useState('');
   return(
     <form onSubmit = {submitHandler}>
-      <input type = 'text' name = 'ip address' placeholder = 'Search for any IP address or domain'/>
+      <input type = 'text' name = 'ip address' placeholder = 'Search for any IP address or domain' value = {ipAddress} onChange = {(e) => setIpAddress(e.currentTarget.value)}/>
       <button type = 'submit'><img alt = 'next' src = {rightarrow}/></button>
     </form>
   )
