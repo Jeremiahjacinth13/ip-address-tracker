@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 import rightarrow from './images/icon-arrow.svg';
 import IPDetailsMenu from './components/IPDetailsMenu';
+import Map from './components/Map';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -43,7 +44,6 @@ function App() {
       };
 
       setIPDetails(toSetStateValue);
-      console.log(toSetStateValue);
     }
 
     fetchData();
@@ -66,6 +66,7 @@ function MainApp({IPDetails}){
       </div>
     </header>
     <IPDetailsMenu ipAddress = {IPDetails.ipAddress} isp = {IPDetails.isp} timezone = {IPDetails.location.timezone} location = {IPDetails.location}/>
+    {/* <Map location = {IPDetails.location}/> */}
     </React.Fragment>
   )
 }
