@@ -6,7 +6,19 @@ import IPDetailsMenu from './components/IPDetailsMenu';
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [IPDetails, setIPDetails] = useState({});
+
+  const [IPDetails, setIPDetails] = useState({
+    ipAddress: '' ,isp: '', location: {
+      country: '',
+      city: '',
+      geonameId: 0,
+      lat: 0,
+      lng: 0,
+      postalCode: '',
+      region: '',
+      timezone: ''
+  }});
+
   const IPAddressDomain = 'https://geo.ipify.org/api/v1';
   const APIKEY = "at_CAnm1q9XevgH7syohZnZPNpC0Hyi3";
 
@@ -14,20 +26,37 @@ function App() {
     async function fetchData(){
       let ipifyresponse = await axios.get(`${IPAddressDomain}?apiKey=${APIKEY}&ipAddress=`);
       setLoading(false);
-      setIPDetails(JSON.stringify(ipifyresponse, null, 0));
+
+      let toSetStateValue = {
+        ipAddress: ipifyresponse.data.ip,
+        isp: ipifyresponse.data.isp,
+        location: {
+          country: ipifyresponse.data.location.country,
+          city: ipifyresponse.data.location.city,
+          geonameId: ipifyresponse.data.location.geonameId,
+          lat: ipifyresponse.data.location.lat,
+          lng: ipifyresponse.data.location.lng,
+          postalCode: ipifyresponse.data.location.postalCode,
+          region: ipifyresponse.data.location.region,
+          timezone: ipifyresponse.data.location.timezone
+        }
+      };
+
+      setIPDetails(toSetStateValue);
+      console.log(toSetStateValue);
     }
+
     fetchData();
   },[]);
 
   return (
     <div className="App">
       {loading ? <Loader/> : <MainApp IPDetails = {IPDetails}/>}
-      <MainApp/>
     </div>
   );
 }
 
-function MainApp(props){
+function MainApp({IPDetails}){
   return(
     <React.Fragment>
     <header>
@@ -36,7 +65,7 @@ function MainApp(props){
         <InputForm/>
       </div>
     </header>
-    <IPDetailsMenu/>
+    <IPDetailsMenu ipAddress = {IPDetails.ipAddress} isp = {IPDetails.isp} timezone = {IPDetails.location.timezone} location = {IPDetails.location}/>
     </React.Fragment>
   )
 }
