@@ -6,7 +6,7 @@ import IPDetailsMenu from './components/IPDetailsMenu';
 import Map from './components/Map';
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const [IPDetails, setIPDetails] = useState({
     ipAddress: '' ,isp: '', location: {
@@ -59,12 +59,11 @@ function App() {
 function MainApp({IPDetails}){
   return(
     <React.Fragment>
-    <header>
-      <div className = 'ipInput'>
+    <header></header>
+    <div className = 'ipInput'>
         <h1>IP Address Tracker</h1>
         <InputForm/>
       </div>
-    </header>
     <IPDetailsMenu ipAddress = {IPDetails.ipAddress} isp = {IPDetails.isp} timezone = {IPDetails.location.timezone} location = {IPDetails.location}/>
     {/* <Map location = {IPDetails.location}/> */}
     </React.Fragment>
@@ -74,8 +73,8 @@ function MainApp({IPDetails}){
 function InputForm({submitHandler}){
   const [ipAddress, setIpAddress] = useState('');
   return(
-    <form onSubmit = {submitHandler}>
-      <input type = 'text' name = 'ip address' placeholder = 'Search for any IP address or domain' value = {ipAddress} onChange = {(e) => setIpAddress(e.currentTarget.value)}/>
+    <form onSubmit = {submitHandler} autoComplete = 'off'>
+      <input type = 'text' name = 'ip address' placeholder = 'Search for any IP address' value = {ipAddress} onChange = {(e) => setIpAddress(e.currentTarget.value)}/>
       <button type = 'submit'><img alt = 'next' src = {rightarrow}/></button>
     </form>
   )
