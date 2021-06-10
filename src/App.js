@@ -6,7 +6,7 @@ import IPDetailsMenu from './components/IPDetailsMenu';
 import Map from './components/Map';
 
 function App() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const [IPDetails, setIPDetails] = useState({
     ipAddress: '' ,isp: '', location: {
@@ -51,12 +51,12 @@ function App() {
 
   return (
     <div className="App">
-      {loading ? <Loader/> : <MainApp IPDetails = {IPDetails}/>}
+      {loading ? <Loader/> : <MainApp IPDetails = {IPDetails} isLoading  = {loading}/>}
     </div>
   );
 }
 
-function MainApp({IPDetails}){
+function MainApp({IPDetails, isLoading}){
   return(
     <React.Fragment>
     <header></header>
@@ -65,7 +65,7 @@ function MainApp({IPDetails}){
         <InputForm/>
       </div>
     <IPDetailsMenu ipAddress = {IPDetails.ipAddress} isp = {IPDetails.isp} timezone = {IPDetails.location.timezone} location = {IPDetails.location}/>
-    {/* <Map location = {IPDetails.location}/> */}
+    {!isLoading ? <Map location = {IPDetails.location}/> : null}
     </React.Fragment>
   )
 }

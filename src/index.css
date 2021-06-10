@@ -20,15 +20,14 @@
 }
 .loader__p{
   text-align: center;
+  margin-top: 30px;
+  font-size: 1.5em;
 }
 .loader{
   display: flex;
   flex-direction: column;
-  width: 500px;
-  height: 500px;
-  border-radius: 20px;
-  margin: auto;
-  margin-top:5%;
+  width: 100vw;
+  height: 100vh;
   justify-content: center;
   align-items: center;
 }
@@ -40,7 +39,7 @@
   background:#4a4dac;
   transition: all 1s ease;
   margin-right: 7px;
-  animation: grow 1.5s ease infinite;
+  animation: grow 1.5s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
 }
 .loader__circle:nth-of-type(2){
   animation-delay: 0.3s;

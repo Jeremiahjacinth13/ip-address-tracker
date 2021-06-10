@@ -86,7 +86,7 @@ form button:hover{
 @media screen and (max-width: 600px){
     .ipInput h1{
         font-size: 1.5em;
-        margin-bottom: 2em;
+        margin-bottom: 1em;
     }
     form{
         width: 85%;
@@ -95,7 +95,8 @@ form button:hover{
     .ipDetailsMenu{
         flex-direction: column;
         width: 85%;
-        margin-top: 3em;
+        margin-top: 1.5em;
+        padding: 1em;
     }
     .ipDetailsMenu__tab{
         width: 100%;
@@ -103,6 +104,11 @@ form button:hover{
     }
     .ipDetailsMenu__tab__p{
         font-weight: bold;
+        margin-bottom: 9px;
+        font-weight: small;
+    }
+    .ipDetailsMenu__tab h4{
+        font-size: 1.2em;
     }
     form input, form button{
         padding: 1em;
@@ -110,6 +116,13 @@ form button:hover{
     form button{
         width: 15%;
         top: 0;
+    }
+    .loader__circle{
+        margin-right: 5px;
+    }
+    .loader__p{
+        margin-top: 20px;
+        font-size: 1.2em;
     }
     
 }
