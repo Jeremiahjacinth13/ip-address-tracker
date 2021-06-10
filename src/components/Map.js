@@ -3,7 +3,7 @@ import {MapContainer, TileLayer, Popup, Marker} from 'react-leaflet';
 
 
 function MapCustom({location}) {
-    const position = [location.longitude, location.latitude];
+    const position = [location.lat, location.lng];
     return (
         <MapContainer center={position} zoom={16} scrollWheelZoom={true}>
             <TileLayer
